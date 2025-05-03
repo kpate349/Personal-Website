@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ServicesSection } from "@/components/ServicesSection";
 
 const Index = () => {
   return (
@@ -27,6 +28,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Services Section */}
+      <ServicesSection />
 
       <section className="py-20">
         <div className="max-w-5xl mx-auto">
