@@ -13,8 +13,6 @@ export function Navbar() {
   const navItems = [
     { title: "About", path: "/about" },
     { title: "Projects", path: "/projects" },
-    { title: "Blog", path: "/blog" },
-    { title: "Contact", path: "/contact" },
   ];
 
   return (

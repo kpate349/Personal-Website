@@ -23,7 +23,7 @@ const Index = () => {
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link to="/contact">Contact Me</Link>
+              <Link to="/about">Learn More</Link>
             </Button>
           </div>
         </div>

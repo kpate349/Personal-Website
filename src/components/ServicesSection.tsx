@@ -57,7 +57,7 @@ export function ServicesSection() {
               </CardContent>
               <CardFooter>
                 <Button variant="outline" className="w-full" asChild>
-                  <Link to="/contact">
+                  <Link to="/projects">
                     Learn More <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -68,7 +68,7 @@ export function ServicesSection() {
         
         <div className="mt-12 text-center">
           <Button asChild size="lg">
-            <Link to="/contact">
+            <Link to="/projects">
               Get Custom Solution
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
