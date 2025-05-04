@@ -1,27 +1,20 @@
-
 import { Link } from "react-router-dom";
-import { ArrowRight, Bot, Workflow, Layers } from "lucide-react";
+import { ArrowRight, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 const services = [
   {
     title: "AI Workflow Automation",
-    description: "Custom AI agents designed to automate repetitive tasks and integrate with your existing tools.",
+    description: "I will build custom AI agents designed to automate repetitive tasks and integrate with your existing tools.",
     icon: <Bot className="h-8 w-8 text-primary" />,
-    features: ["24/7 operation", "Self-learning capabilities", "Seamless tool integration"]
+    features: ["Fixed monthly maintenance fee", "One-Time development cost", "Seamless integration"]
   },
   {
-    title: "Custom n8n Workflows",
-    description: "Tailored n8n workflows that connect your apps and automate complex business processes.",
-    icon: <Workflow className="h-8 w-8 text-primary" />,
-    features: ["Visual workflow builder", "100+ app integrations", "API-first architecture"]
-  },
-  {
-    title: "Zapier Integration Solutions",
-    description: "Connect hundreds of apps without code using custom Zapier integrations built for your business.",
-    icon: <Layers className="h-8 w-8 text-primary" />,
-    features: ["No-code solutions", "Multi-step zaps", "Real-time data processing"]
+    title: "Zapier/n8n custom automated workflows",
+    description: "Whether it's connecting CRMs to other apps, or automating leads generation, or content creation, we can automate it all",
+    icon: <Bot className="h-8 w-8 text-primary" />,
+    features: ["Fixed monthly maintenance fee", "One-Time development cost", "Seamless integration"]
   }
 ];
 
@@ -30,14 +23,14 @@ export function ServicesSection() {
     <section className="py-20 bg-muted/30">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-14">
-          <h2 className="text-3xl font-bold mb-4">AI Agents as a Service</h2>
+          <h2 className="text-3xl font-bold mb-4">Selling AI Agents as a Service on the Side</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Transform your business operations with custom automated workflows and intelligent AI agents
+            Automate your business operations with custom workflows and intelligent AI agents
             designed specifically for your unique needs.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
           {services.map((service, index) => (
             <Card key={index} className="border hover:shadow-md transition-shadow bg-card h-full flex flex-col">
               <CardHeader>
@@ -55,24 +48,17 @@ export function ServicesSection() {
                   ))}
                 </ul>
               </CardContent>
-              <CardFooter>
-                <Button variant="outline" className="w-full" asChild>
-                  <Link to="/projects">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardFooter>
             </Card>
           ))}
         </div>
         
         <div className="mt-12 text-center">
-          <Button asChild size="lg">
-            <Link to="/projects">
-              Get Custom Solution
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+        <Button asChild size="lg">
+          <a target="_blank" href="https://calendly.com/pkush74/30min">
+            Schedule a call
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </a>
+        </Button>
         </div>
       </div>
     </section>

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -18,8 +17,12 @@ export function Navbar() {
   return (
     <nav className="sticky top-0 z-40 w-full bg-background/80 backdrop-blur-sm border-b">
       <div className="container flex items-center justify-between h-16 px-4 mx-auto sm:px-6">
-        <Link to="/" className="font-semibold text-lg hover:text-primary/80 transition-colors" onClick={closeMenu}>
-          Portfolio
+        <Link to="/" onClick={closeMenu}>
+          <img 
+            src="/profile_picture.jpg" 
+            alt="Logo" 
+            className="h-10 w-auto hover:opacity-80 transition-opacity"
+          />
         </Link>
 
         {/* Desktop Navigation */}

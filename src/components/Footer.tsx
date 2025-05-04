@@ -8,11 +8,11 @@ export function Footer() {
     <footer className="w-full border-t py-6">
       <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
         <p className="text-sm text-muted-foreground">
-          © {currentYear} Your Name. All rights reserved.
+          © {currentYear} Kush Patel. All rights reserved.
         </p>
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/kpate349"
             target="_blank"
             rel="noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors"
@@ -21,16 +21,7 @@ export function Footer() {
             <span className="sr-only">GitHub</span>
           </a>
           <a
-            href="https://twitter.com/yourusername"
-            target="_blank"
-            rel="noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Twitter size={20} />
-            <span className="sr-only">Twitter</span>
-          </a>
-          <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/kush-p-14874215b/"
             target="_blank"
             rel="noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors"
