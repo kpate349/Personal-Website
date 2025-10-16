@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ServicesSection } from "@/components/ServicesSection";
 
 const Index = () => {
 
@@ -83,11 +82,14 @@ const Index = () => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
+            <Button asChild size="lg" variant="outline">
+              <a href="https://calendly.com/your-link" target="_blank" rel="noreferrer">
+                Schedule a Call
+              </a>
+            </Button>
           </div>
         </div>
       </section>
-
-      <ServicesSection />
     </div>
   );
 };
