@@ -97,7 +97,7 @@ const Index = () => {
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <a href="https://calendly.com/your-link" target="_blank" rel="noreferrer">
+              <a href="https://calendly.com/pkush74/" target="_blank" rel="noreferrer">
                 Schedule a Call
               </a>
             </Button>

@@ -18,37 +18,20 @@ const About = () => {
           
           <div className="space-y-6 text-muted-foreground">
             <p>
-              I'm Kush Patel, a Senior Software Engineer with close to 5 years of experience building large-scale data pipelines, web applications, and AI solutions. My work focuses on leveraging Apache Spark, Kafka, Azure DataBricks, and Azure Data Factory to create robust, scalable pipelines that drive data-driven decision-making and business logic.
+              I'm Kush Patel, a Senior Software Engineer with 5 years of experience building large-scale data pipelines, web applications, and AI solutions. My work focuses on leveraging Apache Spark, Kafka, Azure DataBricks, and Azure Data Factory to create robust, scalable pipelines that drive data-driven decision-making and business logic.
             </p>
             
             <p>
-              At UnitedHealth Group, I design and implement big data pipelines using Scala and Spark, enabling efficient ETL processes for critical operational workflows. I'm passionate about AI and actively work with tools like Microsoft AI Foundry and Microsoft AutoGen to develop innovative solutions, like AI Agents. My technical leadership extends to mentoring junior engineers and collaborating with cross-functional teams to deliver high-impact projects under strict SLAs.
+              At UnitedHealth Group, I design and implement big data pipelines using Scala and Spark, enabling efficient ETL processes for critical operational workflows. My technical leadership extends to mentoring junior engineers and collaborating with cross-functional teams to deliver high-impact projects.
             </p>
             
-            <p>
-              Outside of work, I stay engaged with the latest advancements in AI and cloud technologies, contribute to open-source projects, and enjoy exploring new tools and frameworks to push the boundaries of what's possible in software engineering.
-            </p>
           </div>
           
           <div className="mt-12">
             <h2 className="text-2xl font-semibold mb-6">Skills</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {[
-                "Scala", 
-                "PySpark", 
-                "Apache Spark", 
-                "Apache Kafka", 
-                "Azure DataBricks", 
-                "Azure Data Factory",
-                "Azure Functions",
-                "Python", 
-                "SQL", 
-                "Java", 
-                "Docker", 
-                "Jenkins", 
-                "Azure DevOps", 
-                "Microsoft AI Foundry",
-                "Flutter"
+                "Tech"
               ].map((skill) => (
                 <div 
                   key={skill} 
@@ -83,15 +66,6 @@ const About = () => {
                     "Developed, maintained, and collaborated with development teams to build clinical web applications, using React.js.",
                     "Developed a batch streaming pipeline using Kafka and Databricks to ingest millions of provider records.",
                     "Served as a Senior Data Engineer, managing development, production launches, and acting as the primary liaison with business stakeholders, achieving a very high satisfaction rate, through consistent issue resolution and timely deployments."
-                  ]
-                },
-                {
-                  role: "Web Development Intern",
-                  company: "University of Illinois at Chicago",
-                  period: "June 2019 - August 2019",
-                  description: [
-                    "Accelerated the migration of 200+ knowledge base articles to the new UIC website by automating content import scripts, completing the project three weeks ahead of schedule.",
-                    "Tested WordPress functionalities for 100+ university services using automated testing tools, ensuring seamless user experience and full accessibility compliance with WCAG 2.0 standards."
                   ]
                 }
               ].map((job, index) => (
