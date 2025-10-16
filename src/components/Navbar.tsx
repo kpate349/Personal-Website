@@ -14,35 +14,38 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-40 w-full bg-background/80 backdrop-blur-sm border-b">
+    <nav className="sticky top-0 z-40 w-full bg-background/70 backdrop-blur-md border-b border-border/40 shadow-sm">
       <div className="container flex items-center justify-between h-16 px-4 mx-auto sm:px-6">
-        <Link to="/" onClick={closeMenu}>
+        <Link to="/" onClick={closeMenu} className="flex items-center gap-3 group">
           <img 
             src="/profile_picture.jpg" 
             alt="Logo" 
-            className="h-10 w-auto hover:opacity-80 transition-opacity"
+            className="h-10 w-10 rounded-full ring-2 ring-primary/20 group-hover:ring-primary/40 transition-all duration-300 object-cover"
           />
+          <span className="font-semibold text-lg hidden sm:block group-hover:text-primary transition-colors">AI Integration</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-1">
           {navItems.map((item) => (
             <Link
               key={item.title}
               to={item.path}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all duration-200"
             >
               {item.title}
             </Link>
           ))}
-          <ThemeToggle />
+          <div className="ml-2">
+            <ThemeToggle />
+          </div>
         </div>
 
         {/* Mobile Navigation Toggle */}
-        <div className="flex items-center md:hidden">
+        <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
           <button
-            className="p-2 ml-2 text-primary"
+            className="p-2 rounded-lg hover:bg-secondary/50 text-foreground transition-colors"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -53,14 +56,14 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-background pt-16 md:hidden animate-fade-in">
+        <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-lg pt-16 md:hidden animate-fade-in">
           <div className="container px-4 mx-auto">
-            <div className="flex flex-col space-y-6 pt-8">
+            <div className="flex flex-col space-y-4 pt-8">
               {navItems.map((item) => (
                 <Link
                   key={item.title}
                   to={item.path}
-                  className="text-xl font-medium hover:text-primary/80 transition-colors"
+                  className="px-4 py-3 rounded-lg text-lg font-medium hover:bg-secondary/50 hover:text-primary transition-all"
                   onClick={closeMenu}
                 >
                   {item.title}
