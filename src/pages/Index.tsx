@@ -88,6 +88,9 @@ const Index = () => {
               </a>
             </Button>
           </div>
+          <p className="mt-8 text-muted-foreground">
+            Email: <a href="mailto:pkush74@gmail.com" className="text-primary hover:underline">pkush74@gmail.com</a>
+          </p>
         </div>
       </section>
     </div>
