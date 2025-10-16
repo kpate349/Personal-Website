@@ -8,16 +8,80 @@ const Index = () => {
   return (
     <div className="container px-4 mx-auto">
       <section className="py-24 md:py-32">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Senior Software Engineer
+            Transform Your Business with AI Integration
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto">
-            I craft elegant digital products with a focus on clean design and performant code. Let's bring your vision to life.
+          <p className="mt-6 text-lg text-muted-foreground md:text-xl max-w-3xl mx-auto">
+            I help small and medium-sized businesses unlock the power of AI to automate workflows, improve efficiency, and drive growth—without the complexity.
           </p>
+          
+          <div className="mt-12 grid gap-6 md:grid-cols-3 text-left max-w-4xl mx-auto">
+            <div className="p-6 rounded-lg border bg-card">
+              <h3 className="font-semibold text-lg mb-2">Smart AI Integration</h3>
+              <p className="text-sm text-muted-foreground">
+                Integrate AI into your existing business logic to better reason with data and perform actions automatically, saving hours of manual work.
+              </p>
+            </div>
+            <div className="p-6 rounded-lg border bg-card">
+              <h3 className="font-semibold text-lg mb-2">AI-Powered Efficiency</h3>
+              <p className="text-sm text-muted-foreground">
+                Deploy AI agents to handle repetitive tasks, freeing your team to focus on high-value activities that grow your business.
+              </p>
+            </div>
+            <div className="p-6 rounded-lg border bg-card">
+              <h3 className="font-semibold text-lg mb-2">Custom Workflows</h3>
+              <p className="text-sm text-muted-foreground">
+                Build new automated workflows tailored to your specific business needs, from data processing to customer communication.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 p-8 rounded-lg border bg-card/50 max-w-3xl mx-auto">
+            <h2 className="text-2xl font-bold mb-4">My Process</h2>
+            <div className="space-y-4 text-left">
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold">
+                  1
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-1">Free Consultation</h4>
+                  <p className="text-sm text-muted-foreground">
+                    We discuss your business needs, challenges, and the problems you're trying to solve—completely free.
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold">
+                  2
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-1">Custom Solution</h4>
+                  <p className="text-sm text-muted-foreground">
+                    I present a tailored solution with a clear timeline and transparent pricing for development and ongoing support.
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold">
+                  3
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-1">Implementation & Support</h4>
+                  <p className="text-sm text-muted-foreground">
+                    I build your solution and provide month-to-month ongoing support to ensure everything runs smoothly.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild variant="outline" size="lg">
-              <Link to="/about">Learn More</Link>
+            <Button asChild size="lg">
+              <Link to="/about">
+                Learn More About My Work
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>
