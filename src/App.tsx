@@ -9,6 +9,7 @@ import { MainLayout } from "./layouts/MainLayout";
 // Import all pages
 import Index from "./pages/Index";
 import About from "./pages/About";
+import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </MainLayout>

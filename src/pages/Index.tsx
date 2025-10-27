@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ServicesSection } from "@/components/ServicesSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { PortfolioSection } from "@/components/PortfolioSection";
 
 const Index = () => {
 
@@ -115,7 +114,6 @@ const Index = () => {
       </section>
 
       <ServicesSection />
-      <PortfolioSection />
       <TestimonialsSection />
     </div>
   );

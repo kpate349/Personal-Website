@@ -11,6 +11,7 @@ export function Navbar() {
 
   const navItems = [
     { title: "About", path: "/about" },
+    { title: "Blog", path: "/blog" },
   ];
 
   return (
