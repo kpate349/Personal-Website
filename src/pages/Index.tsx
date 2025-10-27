@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ServicesSection } from "@/components/ServicesSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { PortfolioSection } from "@/components/PortfolioSection";
 
 const Index = () => {
 
@@ -14,38 +17,41 @@ const Index = () => {
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Transform Your Business with <span className="gradient-text">AI Integration</span>
+            Transform Your Business with <span className="gradient-text">AI Automation</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground md:text-xl max-w-3xl mx-auto">
-            I help small and medium-sized businesses unlock the power of AI to automate workflows, improve efficiency, and drive growth—without the complexity.
+            I help small and medium-sized businesses unlock the power of AI to automate customer support, streamline workflows, and scale operations—saving time and reducing costs without the complexity.
+          </p>
+          <p className="mt-4 text-base text-muted-foreground max-w-2xl mx-auto">
+            <strong>Who I Help:</strong> E-commerce stores, SaaS companies, digital agencies, and service businesses looking to automate repetitive tasks and improve customer experience with AI-powered solutions.
           </p>
           
           <div className="mt-12 grid gap-6 md:grid-cols-3 text-left max-w-4xl mx-auto">
             <div className="p-6 rounded-lg border bg-card card-hover backdrop-blur-sm">
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <span className="text-2xl">🤖</span>
+                <span className="text-2xl" role="img" aria-label="Robot">🤖</span>
               </div>
-              <h3 className="font-semibold text-lg mb-2">Smart AI Integration</h3>
+              <h3 className="font-semibold text-lg mb-2">24/7 Voice AI Support</h3>
               <p className="text-sm text-muted-foreground">
-                Integrate AI into your existing business logic to better reason with data and perform actions automatically, saving hours of manual work.
+                Deploy Voice AI Assistants that handle customer inquiries around the clock using OpenAI's cutting-edge RealTime API—no human intervention needed.
               </p>
             </div>
             <div className="p-6 rounded-lg border bg-card card-hover backdrop-blur-sm">
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <span className="text-2xl">⚡</span>
+                <span className="text-2xl" role="img" aria-label="Lightning">⚡</span>
               </div>
-              <h3 className="font-semibold text-lg mb-2">AI-Powered Efficiency</h3>
+              <h3 className="font-semibold text-lg mb-2">Workflow Automation</h3>
               <p className="text-sm text-muted-foreground">
-                Deploy AI agents to handle repetitive tasks, freeing your team to focus on high-value activities that grow your business.
+                Automate repetitive tasks like lead qualification, CRM updates, and content creation—freeing your team to focus on revenue-driving activities.
               </p>
             </div>
             <div className="p-6 rounded-lg border bg-card card-hover backdrop-blur-sm">
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <span className="text-2xl">⚙️</span>
+                <span className="text-2xl" role="img" aria-label="Gear">⚙️</span>
               </div>
-              <h3 className="font-semibold text-lg mb-2">Custom Workflows</h3>
+              <h3 className="font-semibold text-lg mb-2">Custom AI Solutions</h3>
               <p className="text-sm text-muted-foreground">
-                Build new automated workflows tailored to your specific business needs, from data processing to customer communication.
+                Get tailored AI agents that integrate seamlessly with your existing tools—from Zapier to custom APIs—designed for your unique business needs.
               </p>
             </div>
           </div>
@@ -107,6 +113,10 @@ const Index = () => {
           </p>
         </div>
       </section>
+
+      <ServicesSection />
+      <PortfolioSection />
+      <TestimonialsSection />
     </div>
   );
 };
