@@ -35,11 +35,13 @@ const onSubmit = async (values: ContactFormValues) => {
   formData.append("email", values.email);
   formData.append("message", values.message);
 
+console.log(formData.toString()); // prints as "name=John&email=test@example.com&message=Hello"
+  
   try {
     const res = await fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: formData.toString(),
+      body: new URLSearchParams(formData).toString()
     });
 
     if (res.ok) {
