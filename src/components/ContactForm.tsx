@@ -18,43 +18,60 @@ type ContactFormValues = {
   name: string;
   email: string;
   message: string;
+  "bot-field"?: string;
 };
 
 export default function ContactForm() {
   const form = useForm<ContactFormValues>({
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
+    defaultValues: { name: "", email: "", message: "", "bot-field": "" },
   });
 
-  const onSubmit = async (values: ContactFormValues) => {
-    const formData = new FormData();
-    formData.append("form-name", "contact");
-    formData.append("name", values.name);
-    formData.append("email", values.email);
-    formData.append("message", values.message);
+  const encode = (data: Record<string, string>) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
 
-    await fetch("/", { method: "POST", body: formData });
+  const onSubmit = async (values: ContactFormValues) => {
+    const formData = {
+      "form-name": "contact",
+      ...values,
+    };
+
+    await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode(formData),
+    });
+
     toast({ title: "Message sent" });
     form.reset();
   };
 
   return (
     <>
-      {/* Netlify form detection */}
-      <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      {/* Hidden Netlify form for build detection */}
+      <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="hidden" name="form-name" value="contact" />
         <input type="text" name="name" />
         <input type="email" name="email" />
         <textarea name="message" />
+        <input type="text" name="bot-field" />
       </form>
 
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
+          data-netlify="true"
+          name="contact"
+          netlify-honeypot="bot-field"
           className="max-w-2xl mx-auto space-y-4 p-6 rounded-lg border bg-card/80 backdrop-blur-sm"
         >
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" {...form.register("bot-field")} />
+
           <h3 className="text-xl font-semibold">Contact Me</h3>
 
           <FormItem>
@@ -98,7 +115,10 @@ export default function ContactForm() {
             <FormField
               name="message"
               control={form.control}
-              rules={{ required: "Message is required", minLength: { value: 10, message: "Message is too short" } }}
+              rules={{
+                required: "Message is required",
+                minLength: { value: 10, message: "Message is too short" },
+              }}
               render={({ field }) => (
                 <FormControl>
                   <Textarea placeholder="Tell me about your project..." {...field} />
