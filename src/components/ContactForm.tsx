@@ -52,20 +52,13 @@ export default function ContactForm() {
 
   return (
     <>
-      {/* Hidden Netlify form for build detection */}
-      <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
-        <input type="hidden" name="form-name" value="contact" />
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <textarea name="message" />
-        <input type="text" name="bot-field" />
-      </form>
-
+      
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           data-netlify="true"
           name="contact"
+          method="post"
           netlify-honeypot="bot-field"
           className="max-w-2xl mx-auto space-y-4 p-6 rounded-lg border bg-card/80 backdrop-blur-sm"
         >
