@@ -1,7 +1,9 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import ContactForm from "@/components/ContactForm";
 
 const Index = () => {
 
@@ -98,9 +100,19 @@ const Index = () => {
               </a>
             </Button>
           </div>
-          <p className="mt-8 text-muted-foreground">
-            Email: <a href="mailto:pkush74@gmail.com" className="text-primary hover:underline">pkush74@gmail.com</a>
-          </p>
+          </div>
+      </section>
+
+      <section className="pb-24">
+        <div className="container px-4 mx-auto">
+          {/* Contact form is a client-side component that will attempt to POST to /api/contact
+              and fall back to the mail client if no backend is available. */}
+          <div className="max-w-4xl mx-auto">
+            <ContactForm />
+            <p className="mt-6 text-muted-foreground">
+              Email: <a href="mailto:pkush74@gmail.com" className="text-primary hover:underline">pkush74@gmail.com</a>
+            </p>
+          </div>
         </div>
       </section>
     </div>
