@@ -23,7 +23,9 @@ export function Navbar() {
             alt="Logo" 
             className="h-10 w-10 rounded-full ring-2 ring-primary/20 group-hover:ring-primary/40 transition-all duration-300 object-cover"
           />
-          <span className="font-semibold text-lg hidden sm:block group-hover:text-primary transition-colors">AI Integration</span>
+        <span className="font-semibold text-lg hidden sm:block bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
+          KushAIAgents
+        </span>
         </Link>
 
         {/* Desktop Navigation */}
