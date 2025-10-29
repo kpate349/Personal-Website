@@ -26,106 +26,97 @@ export default function ContactForm() {
     defaultValues: { name: "", email: "", message: "", "bot-field": "" },
   });
 
-  const encode = (data: Record<string, string>) => {
-    return Object.keys(data)
+  const encode = (data: Record<string, string>) =>
+    Object.keys(data)
       .map(
         (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
       )
       .join("&");
-  };
 
   const onSubmit = async (values: ContactFormValues) => {
-    const formData = {
-      "form-name": "contact",
-      ...values,
-    };
-
+    console.log("THISSSS");
     await fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode(formData),
+      body: encode({ "form-name": "contact", ...values }),
     });
 
     toast({ title: "Message sent" });
-    form.reset();
   };
 
   return (
-    <>
-      
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          data-netlify="true"
-          name="contact"
-          method="post"
-          netlify-honeypot="bot-field"
-          className="max-w-2xl mx-auto space-y-4 p-6 rounded-lg border bg-card/80 backdrop-blur-sm"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" {...form.register("bot-field")} />
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        data-netlify="true"
+        name="contact"
+        method="post"
+        netlify-honeypot="bot-field"
+        className="max-w-2xl mx-auto space-y-4 p-6 rounded-lg border bg-card/80 backdrop-blur-sm"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" {...form.register("bot-field")} />
 
-          <h3 className="text-xl font-semibold">Contact Me</h3>
+        <h3 className="text-xl font-semibold">Contact Me</h3>
 
-          <FormItem>
-            <FormLabel>Name</FormLabel>
-            <FormField
-              name="name"
-              control={form.control}
-              rules={{ required: "Name is required" }}
-              render={({ field }) => (
-                <FormControl>
-                  <Input placeholder="Your name" {...field} />
-                </FormControl>
-              )}
-            />
-            <FormMessage />
-          </FormItem>
+        <FormField
+          control={form.control}
+          name="name"
+          rules={{ required: "Name is required" }}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Name</FormLabel>
+              <FormControl>
+                <Input placeholder="Your name" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-          <FormItem>
-            <FormLabel>Email</FormLabel>
-            <FormField
-              name="email"
-              control={form.control}
-              rules={{
-                required: "Email is required",
-                pattern: {
-                  value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/,
-                  message: "Please enter a valid email",
-                },
-              }}
-              render={({ field }) => (
-                <FormControl>
-                  <Input placeholder="you@example.com" type="email" {...field} />
-                </FormControl>
-              )}
-            />
-            <FormMessage />
-          </FormItem>
+        <FormField
+          control={form.control}
+          name="email"
+          rules={{
+            required: "Email is required",
+            pattern: {
+              value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/,
+              message: "Please enter a valid email",
+            },
+          }}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input placeholder="you@example.com" type="email" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-          <FormItem>
-            <FormLabel>Message</FormLabel>
-            <FormField
-              name="message"
-              control={form.control}
-              rules={{
-                required: "Message is required",
-                minLength: { value: 10, message: "Message is too short" },
-              }}
-              render={({ field }) => (
-                <FormControl>
-                  <Textarea placeholder="Tell me about your project..." {...field} />
-                </FormControl>
-              )}
-            />
-            <FormMessage />
-          </FormItem>
+        <FormField
+          control={form.control}
+          name="message"
+          rules={{
+            required: "Message is required",
+            minLength: { value: 10, message: "Message is too short" },
+          }}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Message</FormLabel>
+              <FormControl>
+                <Textarea placeholder="Tell me about your project..." {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-          <div className="flex justify-end">
-            <Button type="submit">Send Message</Button>
-          </div>
-        </form>
-      </Form>
-    </>
+        <div className="flex justify-end">
+          <Button type="submit">Send Message</Button>
+        </div>
+      </form>
+    </Form>
   );
 }
