@@ -1,133 +1,99 @@
-import * as React from "react";
-import { useForm } from "react-hook-form";
-
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Form,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormMessage,
-} from "@/components/ui/form";
-import { toast } from "@/components/ui/use-toast";
-
-type ContactFormValues = {
-  name: string;
-  email: string;
-  message: string;
-};
+import { useState } from 'react';
 
 export default function ContactForm() {
-  const form = useForm<ContactFormValues>({
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
-  });
+  const [submitted, setSubmitted] = useState(false);
 
-const onSubmit = async (values: ContactFormValues) => {
-  const formData = new URLSearchParams();
-  formData.append("name", values.name);
-  formData.append("email", values.email);
-  formData.append("message", values.message);
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    formData.append("access_key", "bf68f9e4-626e-4820-a798-16a21bb8fa62");
 
-console.log(formData.toString()); // prints as "name=John&email=test@example.com&message=Hello"
-  
-  try {
-    const res = await fetch("/", {
+    const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString()
+      body: formData
     });
 
-    if (res.ok) {
-      toast({ title: "Message sent", description: "Thanks — I will get back to you soon." });
-      form.reset();
-    } else {
-        throw new Error(`Server responded with ${res.status}: ${res.statusText}`);
-    }
-  } catch (e: any) {
-  const subject = encodeURIComponent(`Website contact from ${values.name}`);
-  const body = encodeURIComponent(`Name: ${values.name}\nEmail: ${values.email}\n\n${values.message}`);
-  window.location.href = `mailto:pkush74@gmail.com?subject=${subject}&body=${body}`;
-  toast({ title: "Error", description: e?.message || String(e) });
-}
-};
-
+    const data = await response.json();
+    if (data.success) setSubmitted(true);
+  };
 
   return (
-    <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="max-w-2xl mx-auto space-y-4 p-6 rounded-lg border bg-card/80 backdrop-blur-sm"
-        data-netlify="true"
-        name="contact-form"
-        method="post"
-      >
+    <div className="max-w-md mx-auto p-6">
+      {!submitted && (
+        <form
+          onSubmit={onSubmit}
+          className="bg-white shadow-lg rounded-lg p-6 space-y-4 transition-opacity duration-500 opacity-100"
+        >
+          <h2 className="text-2xl font-bold text-gray-800 text-center">Contact Us</h2>
 
-        <input type="hidden" name="form-name" value="contact-form" />
+          <div className="flex flex-col">
+            <label htmlFor="name" className="mb-1 text-gray-700 font-medium">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              required
+              className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
 
-        <h3 className="text-xl font-semibold">Contact Me</h3>
+          <div className="flex flex-col">
+            <label htmlFor="company" className="mb-1 text-gray-700 font-medium">Company (Optional)</label>
+            <input
+              type="text"
+              name="company"
+              id="company"
+              className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
 
-        <FormItem>
-          <FormLabel>Name</FormLabel>
-          <FormField
-            name="name"
-            control={form.control}
-            rules={{ required: "Name is required" }}
-            render={({ field }) => (
-              <FormControl>
-                <Input placeholder="Your name" {...field} />
-              </FormControl>
-            )}
-          />
-          <FormMessage />
-        </FormItem>
+          <div className="flex flex-col">
+            <label htmlFor="email" className="mb-1 text-gray-700 font-medium">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
 
-        <FormItem>
-          <FormLabel>Email</FormLabel>
-          <FormField
-            name="email"
-            control={form.control}
-            rules={{
-              required: "Email is required",
-              pattern: {
-                value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/,
-                message: "Please enter a valid email",
-              },
-            }}
-            render={({ field }) => (
-              <FormControl>
-                <Input placeholder="you@example.com" type="email" {...field} />
-              </FormControl>
-            )}
-          />
-          <FormMessage />
-        </FormItem>
+          <div className="flex flex-col">
+            <label htmlFor="message" className="mb-1 text-gray-700 font-medium">Message</label>
+            <textarea
+              name="message"
+              id="message"
+              required
+              rows={5}
+              className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
+            ></textarea>
+          </div>
 
-        <FormItem>
-          <FormLabel>Message</FormLabel>
-          <FormField
-            name="message"
-            control={form.control}
-            rules={{ required: "Message is required", minLength: { value: 10, message: "Message is too short" } }}
-            render={({ field }) => (
-              <FormControl>
-                <Textarea placeholder="Tell me about your project..." {...field} />
-              </FormControl>
-            )}
-          />
-          <FormMessage />
-        </FormItem>
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Submit
+          </button>
+        </form>
+      )}
 
-        <div className="flex justify-end">
-          <Button type="submit">Send Message</Button>
+      {submitted && (
+        <div className="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg p-12 space-y-4 animate-fade-in">
+          <div className="w-16 h-16 border-4 border-green-500 rounded-full flex items-center justify-center">
+            <svg
+              className="w-8 h-8 text-green-500"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <p className="text-xl font-semibold text-gray-800">Message Sent Successfully</p>
         </div>
-      </form>
-    </Form>
+      )}
+    </div>
   );
 }
